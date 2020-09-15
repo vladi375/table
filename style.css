@@ -1,0 +1,41 @@
+* {
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.form {
+  display: block;
+  text-align: center;
+  padding: 20px;
+}
+
+label {
+  padding: 10px;
+}
+
+#btn {
+  margin: 20px 0;
+  padding: 10px;
+}
+
+#quantity {
+  width: 70%;
+}
+
+#total {
+  width: 70%;
+}
+
+#deleteBtn {
+  position: relative;
+  left: 300px;
+}
+
+#sumBtn {
+  position: relative;
+  left: 350px;
+}
+
+#newTable {
+  text-align: center;
+}
