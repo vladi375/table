@@ -8,6 +8,10 @@ const quantity = document.getElementById("quantity");
 const total = document.getElementById("total");
 const deleteBtn = document.getElementById("deleteBtn");
 const sumBtn = document.getElementById("sumBtn");
+const sortBtnYearsAppend = document.getElementById("sortBtnYearsAppend");
+const sortBtnYearsDescend = document.getElementById("sortBtnYearsDescend");
+const sortBtnDateAppend = document.getElementById("sortBtnDateAppend");
+const sortBtnDateDescend = document.getElementById("sortBtnDateDescend");
 
 let arr = [];
 
@@ -21,7 +25,7 @@ addBtn.addEventListener("click", () => {
   });
   addInfo();
 
-  console.log(arr);
+  // console.log(arr);
 });
 
 function addInfo() {
@@ -33,9 +37,11 @@ function addInfo() {
 }
 
 deleteBtn.addEventListener("click", () => {
-  let checkedBoxes = document.querySelectorAll("input[type=checkbox]:checked");
+  let selectedCheckBoxes = document.querySelectorAll(
+    "input[type=checkbox]:checked"
+  );
   let ids = [];
-  checkedBoxes.forEach((box) => {
+  selectedCheckBoxes.forEach((box) => {
     ids.push(Number(box.getAttribute("employeeID")));
   });
   arr = arr.filter((employee) => !ids.includes(employee.id));
@@ -50,4 +56,44 @@ sumBtn.addEventListener("click", () => {
   let totalSum = collectSum.reduce((sum, current) => sum + current, 0);
   const amount = totalSum;
   total.innerHTML = `Сумма $: ${amount}`;
+});
+
+sortBtnYearsAppend.addEventListener("click", () => {
+  function compareYearsAppend(a, b) {
+    if (a.year > b.year) return 1;
+    if (a.year == b.year) return 0;
+    if (a.year < b.year) return -1;
+  }
+  arr.sort(compareYearsAppend);
+  addInfo();
+});
+
+sortBtnYearsDescend.addEventListener("click", () => {
+  function compareYearsDescend(a, b) {
+    if (a.year > b.year) return -1;
+    if (a.year == b.year) return 0;
+    if (a.year < b.year) return 1;
+  }
+  arr.sort(compareYearsDescend);
+  addInfo();
+});
+
+sortBtnDateAppend.addEventListener("click", () => {
+  function compareDateAppend(a, b) {
+    if (a.date > b.date) return 1;
+    if (a.date == b.date) return 0;
+    if (a.date < b.date) return -1;
+  }
+  arr.sort(compareDateAppend);
+  addInfo();
+});
+
+sortBtnDateDescend.addEventListener("click", () => {
+  function compareDateDescend(a, b) {
+    if (a.date > b.date) return -1;
+    if (a.date == b.date) return 0;
+    if (a.date < b.date) return 1;
+  }
+  arr.sort(compareDateDescend);
+  addInfo();
 });
