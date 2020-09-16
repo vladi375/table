@@ -39,3 +39,21 @@ label {
 #newTable {
   text-align: center;
 }
+
+#sortBtnYearsAppend {
+  padding: 0;
+  margin-left: 20px;
+}
+
+#sortBtnYearsDescend {
+  padding: 0;
+}
+
+#sortBtnDateAppend {
+  padding: 0;
+  margin-left: 20px;
+}
+
+#sortBtnDateDescend {
+  padding: 0;
+}
